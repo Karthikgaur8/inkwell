@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+.log
+
+# Course material, not part of the project
+Workshop_1(1).pdf
