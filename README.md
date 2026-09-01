@@ -15,6 +15,8 @@ system run and that the repository is under version control.
 inkwell/
 ├── .gitignore
 ├── README.md
+├── docs/
+│   └── BACKLOG.md   # product backlog
 ├── client/          # React SPA (presentation tier)
 │   ├── package.json
 │   └── src/
@@ -59,3 +61,17 @@ Verify with:
 curl -i http://localhost:4000/api/health
 curl -i http://localhost:4000/api/version
 ```
+
+## Definition of Done
+
+A backlog item is Done when:
+
+- [ ] Code is committed with a descriptive message
+- [ ] It runs locally per the relevant lecture's Code Walkthrough
+- [ ] It does not break previously-passing verification steps
+- [ ] New setup steps are documented here
+
+## Process
+
+Inkwell follows an incremental process: one lecture, one increment.
+See docs/BACKLOG.md for the current product backlog.
