@@ -17,5 +17,6 @@
 | D-013 | Lecture 10 self-review | Process | docs/BACKLOG.md statuses not updated, US-01 to US-04 still "Requirements Defined" | Open |
 | D-014 | Lecture 10 self-review | Documentation | README has no setup steps for Postgres, server/.env or the migrations | Open |
 | D-015 | Lecture 10 walkthrough | Compatibility | engines ">=22.0.0" still allows Node 22.0 to 22.11, which Prisma 7.10 doesn't support (it needs ^20.19, ^22.12 or >=24) | Open |
+| D-016 | Lecture 12 walkthrough | Compatibility | The handout's npm test script runs node_modules/.bin/jest with node, but on Windows that file is a shell script, so npm test fails with a SyntaxError | Script runs node_modules/jest/bin/jest.js instead (0af6c1c) |
 
 D-002 to D-015 were found before this log existed and are copied in from the workshop reports. D-007 to D-014 are the findings in docs/reviews/2026-lecture-08-persistence-layout.md.
