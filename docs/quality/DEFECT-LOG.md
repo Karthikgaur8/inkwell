@@ -18,5 +18,7 @@
 | D-014 | Lecture 10 self-review | Documentation | README has no setup steps for Postgres, server/.env or the migrations | Open |
 | D-015 | Lecture 10 walkthrough | Compatibility | engines ">=22.0.0" still allows Node 22.0 to 22.11, which Prisma 7.10 doesn't support (it needs ^20.19, ^22.12 or >=24) | Open |
 | D-016 | Lecture 12 walkthrough | Compatibility | The handout's npm test script runs node_modules/.bin/jest with node, but on Windows that file is a shell script, so npm test fails with a SyntaxError | Script runs node_modules/jest/bin/jest.js instead (0af6c1c) |
+| D-017 | Lecture 13 walkthrough | Security | The handout says server/.env.test is covered by the same .gitignore rule as .env, but that rule only matches a file named exactly .env, so .env.test would have been committed | Added .env.test to server/.gitignore (0b821c4) |
+| D-018 | Lecture 13 walkthrough | Documentation | npm test now loads server/.env.test, which isn't committed, so on a fresh clone even the unit tests stop with ".env.test: not found" until someone creates it (the integration tests also need Postgres with an inkwell_test database) | Open |
 
 D-002 to D-015 were found before this log existed and are copied in from the workshop reports. D-007 to D-014 are the findings in docs/reviews/2026-lecture-08-persistence-layout.md.
