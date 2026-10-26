@@ -1,0 +1,26 @@
+{
+  "name": "inkwell",
+  "version": "1.0.0",
+  "description": "A Medium-like blog publishing platform, built incrementally over CS 415/515 (Software Design and Development).",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karthikgaur8/inkwell.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karthikgaur8/inkwell/issues"
+  },
+  "homepage": "https://github.com/Karthikgaur8/inkwell#readme",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^26.6.5"
+  }
+}

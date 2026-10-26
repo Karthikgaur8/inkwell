@@ -5,3 +5,10 @@ dist/
 
 # Course material, not part of the project
 Workshop_1(1).pdf
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
