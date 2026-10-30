@@ -30,10 +30,10 @@ router.post("/posts", requireAuth, async (req, res) => {
 
 router.get("/posts", async (req, res, next) => {
   try {
-    const { page = 1, search } = req.query;
+    const { page = 1, search, pageSize } = req.query;
     const result = search
-      ? await PostService.search({ query: search, page: Number(page) })
-      : await PostService.listPublished({ page: Number(page) });
+      ? await PostService.search({ query: search, page: Number(page), pageSize })
+      : await PostService.listPublished({ page: Number(page), pageSize });
     res.status(200).json(result);
   } catch (err) {
     next(err);

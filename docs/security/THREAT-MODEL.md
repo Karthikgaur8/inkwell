@@ -16,6 +16,7 @@
 | GET /api/posts | Response includes fields beyond what the feed needs (e.g., email) | Information Disclosure | High | Medium | High | Explicit response shaping / DTO (Section 5.3) |
 | POST /api/auth/login | Unlimited login attempts enable brute-force credential guessing | Denial of Service / Broken Auth | Medium | High | High | Rate limiting (Section 5.4) |
 | POST /api/posts | Untrusted `body` content rendered unsanitized on the client, enabling stored XSS | Tampering / Info Disclosure | Medium | High | High | Output encoding on render (Section 5.5) |
+| GET /api/posts | A request with a huge pageSize makes the server load and send every post at once, slowing it down for everyone | Denial of Service | Medium | Medium | Medium | Cap pageSize at 50 in PostService, bigger values are clamped (Lecture 15 exercise) |
 
 ## Security
 
@@ -25,11 +26,12 @@
 - 2026 — Lecture 15: Added allowlist-based user DTO to prevent field leakage (Section 1.3)
 - 2026 — Lecture 15: Added rate limiting to auth endpoints (Section 1.4)
 - 2026 — Lecture 15: Verified stored-XSS resistance with regression test (Section 1.5)
+- 2026 — Lecture 15 exercise: Capped pageSize on GET /api/posts at 50, with an integration test for an oversized request
 
 ### Security Measurement Baseline
 
-- Vulnerabilities found this pass: 4 (all remediated)
-- Security test coverage: 1 of 4 attack-surface endpoints has a dedicated security regression test
+- Vulnerabilities found this pass: 5 (all remediated)
+- Security test coverage: 2 of 4 attack-surface endpoints have a dedicated security regression test
 - Maturity note: Inkwell's security practice is currently ad hoc/reactive
   (a single hardening pass), not yet an ongoing program — the honest, named starting point
   for future improvement, not a finished state.
