@@ -5,7 +5,7 @@
 | D-001 | Lecture 10 review | Compatibility | Nullish-coalescing assignment used without a documented minimum Node version | Added engines field to package.json |
 | D-002 | Lecture 7 exercise | Security | Register and login responses included the user's passwordHash | Responses now only send id, email, displayName and createdAt (64622f1) |
 | D-003 | Lecture 8 walkthrough | Functional | Publishing from the editor fails because PostEditor never sends an authorId | PostEditor now sends authorId from the user saved at login (Lecture 14) |
-| D-004 | Lecture 9 walkthrough | Security | POST /api/posts takes authorId from the request body and ignores the token, so anyone can publish as any user | Open |
+| D-004 | Lecture 9 walkthrough | Security | POST /api/posts takes authorId from the request body and ignores the token, so anyone can publish as any user | POST /api/posts now uses requireAuth and takes authorId from the verified token (3a21222) |
 | D-005 | Lecture 9 walkthrough | Error handling | GET /api/posts?page=abc returns 500 with Prisma's error text (the old route fell back to page 1) | Open |
 | D-006 | Lecture 9 walkthrough | API contract | Search results have no page field, unlike the feed and docs/design/api-contract.md | Open |
 | D-007 | Lecture 10 self-review | Error handling | Feed has no error state: blank page when the database is down, stuck on "Loading posts…" when the API is down | Open |
