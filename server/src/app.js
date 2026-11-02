@@ -10,6 +10,7 @@ import versionRoutes from "./routes/version.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import postRoutes from "./routes/post.routes.js";
 import statsRoutes from "./routes/stats.routes.js";
+import { errorHandler } from "./middleware/error-handler.js";
 import "./events/listeners/log-published-posts.listener.js"; // Lecture 9's listener registers itself as a side effect on import -- carry it over from index.js
 import "./events/listeners/count-published-posts.listener.js"; // Lecture 9 exercise, same reason
 
@@ -22,11 +23,6 @@ app.use("/api", authRoutes);
 app.use("/api", postRoutes);
 app.use("/api", statsRoutes); // Lecture 9 exercise, GET /api/stats
 
-// Carried over from index.js (Lecture 6) -- dropping this here would
-// silently lose the app's JSON error-response contract.
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(err.status || 500).json({
-    error: { code: err.code || "INTERNAL_ERROR", message: err.message },
-  });
-});
+// Same JSON error-response contract as before (Lecture 6), now from the
+// Lecture 16 A05 error handler, which hides internal messages in production.
+app.use(errorHandler);

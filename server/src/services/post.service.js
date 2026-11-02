@@ -45,4 +45,12 @@ export const PostService = {
   async search({ query, page = 1, pageSize }) {
     return searchStrategy.search(query, { page, pageSize: toSafePageSize(pageSize) });
   },
+
+  async getById(id) {
+    return PostRepository.findById(id);
+  },
+
+  async delete(id) {
+    return PostRepository.deleteById(id);
+  },
 };
